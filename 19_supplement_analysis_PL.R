@@ -307,10 +307,10 @@ print(nnt_result)
 write.csv(nnt_result, file.path(RESULTS_DIR, "eTable9.csv"), row.names = FALSE)
 cat("✅ Table S5 saved: eTable9.csv\n")
 # ============================================================================
-# 9. AUC比较 (Table S6) 和 ROC曲线 (Figure S3)
+# 9. AUC比较 (Table S6) 和 ROC曲线 (eFigure 3)
 # ============================================================================
 cat("\n========================================================\n")
-cat("7. AUC比较 (Table S6) 和 ROC曲线 (Figure S3)\n")
+cat("7. AUC比较 (Table S6) 和 ROC曲线 (eFigure 3)\n")
 cat("========================================================\n")
 library(pROC)
 vars_needed <- c("depression", "alpha2", "BMXBMI", "current_smoker", 
@@ -344,19 +344,19 @@ print(auc_compare)
 write.csv(auc_compare, file.path(RESULTS_DIR, "eTable10.csv"), row.names = FALSE)
 # 绘制ROC曲线
 pdf(file.path(RESULTS_DIR, "eFigure3.pdf"), width = 8, height = 6)
-plot(roc_alpha, col = "blue", main = "Figure S3. ROC Curve Comparison")
+plot(roc_alpha, col = "blue", main = "eFigure 3. ROC Curve Comparison")
 plot(roc_classic, col = "red", add = TRUE)
 legend("bottomright", legend = c("α₂ Model", "Classic Risk Model"), 
        col = c("blue", "red"), lty = 1)
 dev.off()
 # 保存PNG
 png(file.path(RESULTS_DIR, "eFigure3.png"), width = 800, height = 600, res = 150)
-plot(roc_alpha, col = "blue", main = "Figure S3. ROC Curve Comparison")
+plot(roc_alpha, col = "blue", main = "eFigure 3. ROC Curve Comparison")
 plot(roc_classic, col = "red", add = TRUE)
 legend("bottomright", legend = c("α₂ Model", "Classic Risk Model"), 
        col = c("blue", "red"), lty = 1)
 dev.off()
-cat("✅ Figure S3 saved: eFigure3.pdf/.png\n")
+cat("✅ eFigure 3 saved: eFigure3.pdf/.png\n")
 cat("✅ Table S6 saved: eTable10.csv\n")
 # ============================================================================
 # 10. 敏感性分析 (Table S7)

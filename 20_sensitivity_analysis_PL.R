@@ -219,10 +219,10 @@ original_subset <- original %>%
 write.csv(sensitivity_results, file.path(RESULTS_DIR, "eTable12.csv"), row.names = FALSE)
 cat("✅ Table S8 saved: eTable12.csv\n")
 # ============================================================================
-# 5. 敏感性分析2：α因子与炎症的非线性关系 (Figure S4 & Table S9)
+# 5. 敏感性分析2：α因子与炎症的非线性关系 (eFigure 2 & Table S9)
 # ============================================================================
 cat("\n========================================================\n")
-cat("3. 敏感性分析2：α因子与炎症的非线性关系 (Figure S4 & Table S9)\n")
+cat("3. 敏感性分析2：α因子与炎症的非线性关系 (eFigure 2 & Table S9)\n")
 cat("========================================================\n")
 nonlinear_data <- data %>% filter(complete.cases(alpha2, hs_crp_mgl))
 cat(sprintf("分析样本量: %d\n", nrow(nonlinear_data)))
@@ -254,14 +254,14 @@ tryCatch({
     geom_line(color = "blue", size = 1.2) +
     geom_ribbon(aes(ymin = exp(log_crp_lower) - 0.1,
                     ymax = exp(log_crp_upper) - 0.1), alpha = 0.2) +
-    labs(title = "Figure S4. Nonlinear Relationship Between α₂ and CRP",
+    labs(title = "eFigure 2. Nonlinear Relationship Between α₂ and CRP",
          x = "α₂ (Emotional Regulation)", y = "Predicted CRP (mg/L)") +
     theme_minimal() +
     geom_vline(xintercept = c(-0.5, 0, 0.5), linetype = "dashed", color = "gray50") +
     theme(plot.title = element_text(hjust = 0.5, face = "bold"))
   ggsave(file.path(RESULTS_DIR, "eFigure 2.pdf"), p, width = 8, height = 6)
   ggsave(file.path(RESULTS_DIR, "eFigure 2.png"), p, width = 8, height = 6, dpi = 300)
-  cat("✅ Figure S4 saved: eFigure 2.pdf/.png\n")
+  cat("✅ eFigure 2 saved: eFigure 2.pdf/.png\n")
   write.csv(nonlinear_results, file.path(RESULTS_DIR, "eTable13.csv"), row.names = FALSE)
   cat("✅ Table S9 saved: eTable13.csv\n")
 }, error = function(e) {
@@ -427,7 +427,7 @@ cat("===========================\n\n")
 cat("Analysis time:", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n\n")
 cat("一、Excluding Medicated Participants (Table S8)\n")
 if(exists("sensitivity_results")) print(head(sensitivity_results))
-cat("\n二、Nonlinear Relationship Between α₂ and CRP (Figure S4, Table S9)\n")
+cat("\n二、Nonlinear Relationship Between α₂ and CRP (eFigure 2, Table S9)\n")
 if(exists("anova_result")) {
   cat(sprintf("Nonlinearity test p-value: %.4f\n", anova_result$`Pr(>F)`[2]))
 }

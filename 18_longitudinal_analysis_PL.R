@@ -245,7 +245,7 @@ p_age <- ggplot(age_plot_data, aes(x = age_group_en, y = phq9, color = cycle, gr
   geom_line(size = 1) +
   geom_point(size = 2) +
   geom_errorbar(aes(ymin = phq9 - se, ymax = phq9 + se), width = 0.2) +
-  labs(title = "Figure S1. Age-Period Effects on Depression",
+  labs(title = "eFigure 1. Age-Period Effects on Depression",
        x = "Age Group", y = "PHQ-9 Total Score",
        color = "Cycle") +
   theme_minimal() +
